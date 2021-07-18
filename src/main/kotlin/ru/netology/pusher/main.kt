@@ -38,7 +38,7 @@ fun main() {
 fun sendNewPost() {
 
     val message = Message.builder()
-        .putData("action", "New")
+        .putData("action", "NEW")
         .putData(
             "content", """{
                 "userId": 1,
