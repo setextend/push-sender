@@ -15,6 +15,10 @@ fun main() {
 
     FirebaseApp.initializeApp(options)
 
+
+
+    sendNewPost()
+
     val message = Message.builder()
         .putData("action", "LIKE")
         .putData(
@@ -22,8 +26,26 @@ fun main() {
           "userId": 1,
           "userName": "Vasiliy",
           "postId": 2,
-          "postAuthor": "Netology"
+          "postAuthor": "Netology",
         }""".trimIndent()
+        )
+        .setToken(token)
+        .build()
+
+    FirebaseMessaging.getInstance().send(message)
+}
+
+fun sendNewPost() {
+
+    val message = Message.builder()
+        .putData("action", "New")
+        .putData(
+            "content", """{
+                "userId": 1,
+                "userName": "Vasiliy",
+                "postId": 3,
+                "postContent": "It' new post!"
+     }""".trimIndent()
         )
         .setToken(token)
         .build()
