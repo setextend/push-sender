@@ -17,12 +17,14 @@ fun main() {
 
     val message = Message.builder()
         .putData("action", "LIKE")
-        .putData("content", """{
+        .putData(
+            "content", """{
           "userId": 1,
           "userName": "Vasiliy",
           "postId": 2,
           "postAuthor": "Netology"
-        }""".trimIndent())
+        }""".trimIndent()
+        )
         .setToken(token)
         .build()
 
